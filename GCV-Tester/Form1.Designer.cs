@@ -34,15 +34,17 @@
             this.btnSelectDirectory = new System.Windows.Forms.Button();
             this.fbd = new System.Windows.Forms.FolderBrowserDialog();
             this.lblFileCount = new System.Windows.Forms.Label();
-            this.rtbResults = new System.Windows.Forms.RichTextBox();
+            this.rtbGoodResults = new System.Windows.Forms.RichTextBox();
             this.btnBack = new System.Windows.Forms.Button();
+            this.rtbBadResults = new System.Windows.Forms.RichTextBox();
+            this.lblBestGuess = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnNext
             // 
             this.btnNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNext.Location = new System.Drawing.Point(679, 446);
+            this.btnNext.Location = new System.Drawing.Point(695, 448);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(133, 54);
             this.btnNext.TabIndex = 0;
@@ -57,7 +59,7 @@
             this.txtDirectoryPath.Enabled = false;
             this.txtDirectoryPath.Location = new System.Drawing.Point(22, 12);
             this.txtDirectoryPath.Name = "txtDirectoryPath";
-            this.txtDirectoryPath.Size = new System.Drawing.Size(694, 20);
+            this.txtDirectoryPath.Size = new System.Drawing.Size(710, 20);
             this.txtDirectoryPath.TabIndex = 2;
             // 
             // pictureBox1
@@ -65,9 +67,9 @@
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Location = new System.Drawing.Point(22, 74);
+            this.pictureBox1.Location = new System.Drawing.Point(22, 55);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(468, 397);
+            this.pictureBox1.Size = new System.Drawing.Size(484, 399);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -75,7 +77,7 @@
             // btnSelectDirectory
             // 
             this.btnSelectDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSelectDirectory.Location = new System.Drawing.Point(726, 10);
+            this.btnSelectDirectory.Location = new System.Drawing.Point(742, 10);
             this.btnSelectDirectory.Name = "btnSelectDirectory";
             this.btnSelectDirectory.Size = new System.Drawing.Size(75, 23);
             this.btnSelectDirectory.TabIndex = 4;
@@ -92,20 +94,21 @@
             this.lblFileCount.TabIndex = 5;
             this.lblFileCount.Text = "0 files found";
             // 
-            // rtbResults
+            // rtbGoodResults
             // 
-            this.rtbResults.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.rtbGoodResults.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.rtbResults.Location = new System.Drawing.Point(506, 74);
-            this.rtbResults.Name = "rtbResults";
-            this.rtbResults.Size = new System.Drawing.Size(294, 347);
-            this.rtbResults.TabIndex = 6;
-            this.rtbResults.Text = "";
+            this.rtbGoodResults.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbGoodResults.Location = new System.Drawing.Point(523, 52);
+            this.rtbGoodResults.Name = "rtbGoodResults";
+            this.rtbGoodResults.Size = new System.Drawing.Size(294, 186);
+            this.rtbGoodResults.TabIndex = 6;
+            this.rtbGoodResults.Text = "";
             // 
             // btnBack
             // 
             this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBack.Location = new System.Drawing.Point(506, 446);
+            this.btnBack.Location = new System.Drawing.Point(522, 448);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(133, 54);
             this.btnBack.TabIndex = 7;
@@ -113,13 +116,38 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // rtbBadResults
+            // 
+            this.rtbBadResults.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtbBadResults.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtbBadResults.Location = new System.Drawing.Point(523, 242);
+            this.rtbBadResults.Name = "rtbBadResults";
+            this.rtbBadResults.Size = new System.Drawing.Size(294, 186);
+            this.rtbBadResults.TabIndex = 8;
+            this.rtbBadResults.Text = "";
+            // 
+            // lblBestGuess
+            // 
+            this.lblBestGuess.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblBestGuess.AutoSize = true;
+            this.lblBestGuess.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBestGuess.Location = new System.Drawing.Point(22, 469);
+            this.lblBestGuess.Name = "lblBestGuess";
+            this.lblBestGuess.Size = new System.Drawing.Size(103, 25);
+            this.lblBestGuess.TabIndex = 9;
+            this.lblBestGuess.Text = "ABC1234";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(813, 503);
+            this.ClientSize = new System.Drawing.Size(829, 505);
+            this.Controls.Add(this.lblBestGuess);
+            this.Controls.Add(this.rtbBadResults);
             this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.rtbResults);
+            this.Controls.Add(this.rtbGoodResults);
             this.Controls.Add(this.lblFileCount);
             this.Controls.Add(this.btnSelectDirectory);
             this.Controls.Add(this.pictureBox1);
@@ -142,8 +170,10 @@
         private System.Windows.Forms.Button btnSelectDirectory;
         private System.Windows.Forms.FolderBrowserDialog fbd;
         private System.Windows.Forms.Label lblFileCount;
-        private System.Windows.Forms.RichTextBox rtbResults;
+        private System.Windows.Forms.RichTextBox rtbGoodResults;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.RichTextBox rtbBadResults;
+        private System.Windows.Forms.Label lblBestGuess;
     }
 }
 

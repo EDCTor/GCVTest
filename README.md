@@ -5,7 +5,9 @@ The application utilizes the Google Computer Vision API in order to perform OCR 
 #INSTRUCTIONS
 
 Installation Instructions:
+
 1). Login to Google Compute console and create the service account key for Computer Vision API, download the json file
+
 2). Run Powershell command
 
 C:\> [Environment]::SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", "$env:USERPROFILE\Documen
